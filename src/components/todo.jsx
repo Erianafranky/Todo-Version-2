@@ -1,20 +1,20 @@
 import useContextGetter from '../hooks/useContextGetter';
-import ListItem from './list-item';
+import TodoList from './todoList';
 
 // scoped styling
 import '../styles/shopping-list.css';
 
-function ShoppingList() {
+function Todo() {
 	const context = useContextGetter();
 	console.log(context);
 
 	return (
 		<ul>
-			{context.state.shoppingList.map(function (shoppingItem) {
+			{context.state.todoList.map(function (todoItem) {
 				return (
-					<ListItem
-						key={shoppingItem.id}
-						item={shoppingItem}
+					<TodoList
+						key={todoItem.id}
+						item={todoItem}
 					/>
 				);
 			})}
@@ -22,4 +22,4 @@ function ShoppingList() {
 	);
 }
 
-export default ShoppingList;
+export default Todo;

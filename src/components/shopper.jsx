@@ -1,7 +1,7 @@
 import { useLayoutEffect } from 'react';
 import { useHistory } from 'react-router';
 import Form from './form';
-import ShoppingList from './shopping-list';
+import Todo from './todo';
 import useContextGetter from '../hooks/useContextGetter';
 
 function Shopper() {
@@ -17,7 +17,7 @@ function Shopper() {
 	return (
 		<div class='shopper'>
 			<Form />
-			<ShoppingList />
+			<Todo />
 		</div>
 	);
 }

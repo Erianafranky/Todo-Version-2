@@ -7,13 +7,13 @@ function Form() {
 	const handleSubmit = e => {
 		e.preventDefault();
 
-		if (!context.state.title || !context.state.description) {
+		if (!context.state.title) {
 			return false;
 		}
 
 		const newItem = {
 			title: context.state.title,
-			description: context.state.description,
+			//description: context.state.description,
 			id: Date.now(),
 		};
 
@@ -33,16 +33,10 @@ function Form() {
 		});
 	};
 
-	const setDescription = e => {
-		context.dispatch({
-			type: 'UPDATE_DESCRIPTION',
-			payload: e.target.value,
-		});
-	};
 
 	return (
 		<div>
-			<form onSubmit={handleSubmit}>
+			<form className='todo-form' onSubmit={handleSubmit}>
 				<input
 					value={context.state.title}
 					onChange={setTitle}
@@ -50,16 +44,10 @@ function Form() {
 					name='title'
 					id='title'
 					placeholder='Title'
+					className='todo-input'
 				/>
-				<textarea
-					type='text'
-					value={context.state.description}
-					onChange={setDescription}
-					name='desc'
-					id='desc'
-					placeholder='Description'
-				/>
-				<button class='btn' type='submit'>
+				
+				<button className='todo-button' type='submit'>
 					Add Item
 				</button>
 			</form>

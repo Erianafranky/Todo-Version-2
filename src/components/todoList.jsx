@@ -1,6 +1,9 @@
 import useContextGetter from '../hooks/useContextGetter';
+import { RiCloseCircleLine } from 'react-icons/ri';
+import { TiEdit } from 'react-icons/ti';
+import '../App.css';
 
-function ListItem({ item }) {
+function TodoList({ item }) {
 	const context = useContextGetter();
 
 	// remove an item from the list
@@ -15,17 +18,19 @@ function ListItem({ item }) {
 	};
 
 	return (
-		<li>
+		<div className="todo-row">
 			<h2 className='title'>{item.title}</h2>
-			<p className='description'>{item.description}</p>
-			<button className='btn' onClick={editHandler}>
-				Edit
-			</button>
-			<button className='btn remove' onClick={removeHandler}>
-				Remove
-			</button>
-		</li>
+			<div className='icons'>] 
+				<RiCloseCircleLine onClick={removeHandler}
+				className='delete-icon' />
+					
+				<TiEdit
+				onClick={editHandler}
+				className='edit-icon' />
+			
+			</div>
+		</div>
 	);
 }
 
-export default ListItem;
+export default TodoList;

@@ -14,17 +14,16 @@ function reducer(state, action) {
 	// add the payload to shoppingList
 	if (action.type === 'ADD_ITEM') {
 		if (stateCopy.isEditing) {
-			stateCopy.shoppingList = stateCopy.shoppingList.map(
+			stateCopy.todoList = stateCopy.todoList.map(
 				item => {
 					if (item.id === stateCopy.currentlyEditing) {
 						item.title = stateCopy.title;
-						item.description = stateCopy.description;
 					}
 					return item;
 				}
 			);
 		} else {
-			stateCopy.shoppingList.unshift(action.payload);
+			stateCopy.todoList.unshift(action.payload);
 		}
 	}
 
@@ -46,7 +45,7 @@ function reducer(state, action) {
 
 	// remove an item if action.type is DELETE
 	if (action.type === 'DELETE') {
-		stateCopy.shoppingList = stateCopy.shoppingList.filter(
+		stateCopy.shoppingList = stateCopy.todoList.filter(
 			item => item.id !== action.payload.id
 		);
 	}
@@ -75,31 +74,23 @@ function reducer(state, action) {
 
 	if (action.type === 'RESET_INPUTS') {
 		stateCopy.title = '';
-		stateCopy.description = '';
 	}
 
 	return stateCopy;
 }
 
 const initialState = {
-	shoppingList: [
+	todoList: [
 		{
 			id: 1,
 			title: 'Item 1',
-			description:
-				'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maxime, totam!',
-		},
-		{
-			id: 2,
-			title: 'Item 2',
-			description:
-				'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maxime, totam!',
-		},
+			
+		}
+		
 	],
 	isUserLoggedIn: false,
 	userData: null,
 	title: '',
-	description: '',
 	isEditing: false,
 	currentlyEditing: '',
 };

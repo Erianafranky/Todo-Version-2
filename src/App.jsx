@@ -5,6 +5,7 @@ import { useContext, useEffect } from 'react';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import Navbar from './components/navbar';
+import './styles/form.css'
 
 // REACT HOOKS
 
@@ -26,12 +27,15 @@ function App() {
 					<Route path='/register'>
 						<Register />
 					</Route>
-					<Route path='/shopping-list'>
+					<div className="todo-app">
+					<Route path='/todos'>
 						<Shopper />
 					</Route>
+					</div>
 					<Route>
 						<Login />
 					</Route>
+					
 				</Switch>
 			</AppState>
 		</BrowserRouter>

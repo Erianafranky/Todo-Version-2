@@ -11,7 +11,7 @@ export default function useLoggedIn() {
         // away from current page to shopping list page
 
         if (context.state.isUserLoggedIn) {
-            history.push('/shopping-list');
+            history.push('/todos');
         }
     }, [context.state, history]);
 }

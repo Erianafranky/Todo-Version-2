@@ -54,56 +54,73 @@ function Register() {
 	};
 
 	return (
+		<>
+		<div className='form-container'>
+        	<span className='close-btn'>×</span>
+        	<div className='form-content-left'>
+          		<img className='form-img' src='img/img-2.svg' alt='spaceship' />
+        	</div>
+			<div className='form-content-right'>
 		<form onSubmit={handleSubmit(handleRegister)}>
-			<div>
-				<h2>Register</h2>
-				<span>Complete to start adding shopping items</span>
-			</div>
-			<br />
-			<div>
-				<label htmlFor='email'>Email</label>
-				<br />
+			<h1>
+				Get started with us today! Create your account by filling out the
+				information below.
+        	</h1>
+			
+			<div className="form-inputs">
+			<label className='form-label' htmlFor='email'>Email</label>
+				
 				<input
+					className="form-input"
 					type='email'
 					name='email'
 					id='email'
+					placeholder='Enter your email'
 					required
 					{...register('email')}
 				/>
 			</div>
-			<br />
-			<div>
-				<label htmlFor='password'>Password</label>
-				<br />
+			
+			<div className="form-inputs">
+				<label className="form-label" htmlFor='password'>Password</label>
 				<input
+					className="form-input"
 					type='password'
 					name='password'
 					id='password'
+					placeholder='password'
 					required
 					{...register('password')}
 				/>
 			</div>
-			<br />
-			<div>
-				<label htmlFor='confirm-password'>
+			
+			<div className="form-inputs">
+				<label className="form-label" htmlFor='confirm-password'>
 					Confirm Password
 				</label>
-				<br />
 				<input
+					className="form-input"
 					type='password'
 					name='confirm-password'
 					id='confirm-password'
+					placeholder='password'
 					required
 					{...register('confirmPassword')}
 				/>
 			</div>
+			
+			
+			<button className='form-input-btn' type='submit'>
+				Register
+			</button>
 			<br />
-			<div>
-				<button type='submit' className='btn '>
-					Register
-				</button>
-			</div>
+			<span className='form-input-logins'>
+         		Already have an account? Login <a href='/login'>here</a>
+        	</span>		
 		</form>
+		</div>
+		</div>
+		</>
 	);
 }
 

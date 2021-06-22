@@ -52,42 +52,53 @@ function Login() {
 	};
 
 	return (
-		<form onSubmit={handleSubmit(loginHandler)}>
-			<div>
-				<h2>Login</h2>
-				<span>Login to view your shopping list</span>
-			</div>
-			<br />
-			<div>
-				<label htmlFor='email'>Email</label>
-				<br />
-				<input
-					type='email'
-					name='email'
-					id='email'
-					required
-					{...register('email')}
-				/>
-			</div>
-			<br />
-			<div>
-				<label htmlFor='password'>Password</label>
-				<br />
-				<input
-					type='password'
-					name='password'
-					id='password'
-					required
-					{...register('password')}
-				/>
-			</div>
-			<br />
-			<div>
-				<button className='btn' type='submit'>
-					Login
-				</button>
-			</div>
-		</form>
+		<>
+		<div className="form-container">
+			<span className='close-btn'>×</span>
+        	<div className='form-content-left'>
+          		<img className='form-img' src='img/img-2.svg' alt='spaceship' />
+        	</div>
+			<div className='form-content-right'>
+				<form onSubmit={handleSubmit(loginHandler)}>
+					
+						<h1 className="form-success">
+						Get started with us today! Login to your account by filling out the
+						information below.
+						</h1>
+					<div className="form-inputs">
+						{/* <label htmlFor='email'>Email</label>
+						<br /> */}
+						<input
+							className="form-input"
+							type='email'
+							name='email'
+							id='email'
+							placeholder='email'
+							required
+							{...register('email')}
+						/>
+					</div>
+					<div className="form-inputs">
+						{/* <label htmlFor='password'>Password</label>
+						<br /> */}
+						<input
+							className="form-input"
+							type='password'
+							name='password'
+							id='password'
+							placeholder='password'
+							required
+							{...register('password')}
+						/>
+					</div>
+					
+						<button className='form-input-btn' type='submit'>
+							Login
+						</button>
+				</form>
+				</div>
+				</div>
+				</>
 	);
 }
 

@@ -1,5 +1,6 @@
 import useContextGetter from '../hooks/useContextGetter';
 import { Link, useLocation } from 'react-router-dom';
+import styles from '../styles/navbar.module.css';
 
 function Navbar() {
 	const {
@@ -18,7 +19,7 @@ function Navbar() {
 		if (!isUserLoggedIn && location.pathname === '/login') {
 			return (
 				<>
-					<Link to='/register'>Register</Link>
+					<Link className={styles.navlink} to='/register'>Register</Link>
 				</>
 			);
 		}
@@ -26,7 +27,7 @@ function Navbar() {
 		if (!isUserLoggedIn && location.pathname === '/register') {
 			return (
 				<>
-					<Link to='/login'>Login</Link>
+					<Link className={styles.navlink} to='/login'>Login</Link>
 				</>
 			);
 		}
@@ -34,7 +35,7 @@ function Navbar() {
 		if (isUserLoggedIn) {
 			return (
 				<>
-					<Link to='/shopping-list'>My List</Link>
+					<Link className={styles.navlink} to='/todos'>My List</Link>
 					<br />
 					<span onClick={logout}>Logout</span>
 				</>
@@ -42,7 +43,7 @@ function Navbar() {
 		}
 	};
 
-	return <nav>{renderNav()}</nav>;
+	return <nav className={styles.navbar}>{renderNav()}</nav>;
 }
 
 export default Navbar;

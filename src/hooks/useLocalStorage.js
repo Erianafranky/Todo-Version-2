@@ -7,6 +7,3 @@ export default function useLocalStorage(initialState) {
 }
 
 
-// inside of a component
-// const [ newstate, setNewState ] = useLocalStorage(0)
-// const [ newstate, setNewState ] = useLocalStorage('man')
